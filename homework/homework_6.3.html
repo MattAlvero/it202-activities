@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homework 6.3</title>
+    </head>
+    <body>
+        <canvas>
+        </canvas>
+        <script>
+            var canvas = document.querySelector("canvas");
+            canvas.style.backgroundColor = "red";
+            var ctx = canvas.getContext("2d");
+            function drawM() {
+                ctx.strokeStyle = "blue";
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.moveTo(10, 80);
+                ctx.lineTo(10, 10);
+                ctx.lineTo(30, 40);
+                ctx.lineTo(50, 10);
+                ctx.lineTo(50, 80);
+                ctx.stroke();
+                ctx.closePath();
+            }
+            drawM();
+            function drawShapes() {
+                ctx.beginPath();
+                ctx.fillStyle = "orange";
+                ctx.fillRect(60, 60, 150, 70);
+                ctx.strokeStyle = "green";
+                ctx.fillStyle = "pink";
+                ctx.arc(100, 70, 50, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fill();
+                ctx.closePath();
+            }
+            drawShapes();
+            ctx.font = "30px arial"
+            ctx.fillStyle = "black";
+            ctx.fillText("663738906", 100, 40);
+        </script>
+    </body>
+</html>
