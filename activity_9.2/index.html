@@ -11,6 +11,9 @@
           body {
               margin: 0px;
           }
+          .view {
+              display: none;
+          }
           @use "@material/drawer/mdc-drawer";
           @use "@material/list/mdc-list";
       </style>
@@ -34,17 +37,17 @@
         <aside class="mdc-drawer mdc-drawer--modal">
             <div class="mdc-drawer__content">
               <nav class="mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#" aria-current="page">
-                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
-                  <span class="mdc-list-item__text">Inbox</span>
+                <a class="mdc-list-item mdc-list-item--activated" href="#home" aria-current="page">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                  <span class="mdc-list-item__text">Home</span>
                 </a>
-                <a class="mdc-list-item" href="#">
-                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-                  <span class="mdc-list-item__text">Outgoing</span>
+                <a class="mdc-list-item" href="#data">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">info</i>
+                  <span class="mdc-list-item__text">Data</span>
                 </a>
-                <a class="mdc-list-item" href="#">
-                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-                  <span class="mdc-list-item__text">Drafts</span>
+                <a class="mdc-list-item" href="#about">
+                  <i class="material-icons mdc-list-item__graphic" aria-hidden="true">announcement</i>
+                  <span class="mdc-list-item__text">About</span>
                 </a>
               </nav>
             </div>
@@ -52,6 +55,15 @@
         <div class="mdc-drawer-scrim"></div>
         
         <main class="mdc-top-app-bar--fixed-adjust main-content">
+            <div id="home" class="view">
+                <h1>Home</h1>
+            </div>
+            <div id="data" class="view">
+                <h1>Data</h1>
+            </div>
+            <div id="about" class="view">
+                <h1>About</h1>
+            </div>
             <button class="mdc-button mdc-button--raised foo-button">
               <div class="mdc-button__ripple"></div>
               <span class="mdc-button__label">Button</span>
@@ -73,6 +85,46 @@
                   drawer.open = true;
               }
             });
+            
+            document.querySelectorAll('.mdc-list-item').forEach(item => {
+              item.addEventListener('click', event => {
+                var x = item.getAttribute("href");
+                console.log(x);
+                switch (x)
+                    {
+                        case '#home':
+                            document.querySelectorAll('.view').forEach(y => {
+                                var z = y.style.display;
+                                if (z == "block") {
+                                    console.log(z);
+                                    z = "none";
+                                }
+                            })
+                            document.querySelector(x).style.display = "block";
+                            break;
+                        case '#data':
+                            document.querySelectorAll('.view').forEach(y => {
+                                var z = y.style.display;
+                                if (z == "block") {
+                                    console.log(z);
+                                    z = "none";
+                                }
+                            })
+                            document.querySelector(x).style.display = "block";
+                            break;
+                        case '#about':
+                            document.querySelectorAll('.view').forEach(y => {
+                                var z = y.style.display;
+                                if (z == "block") {
+                                    console.log(z);
+                                    z = "none";
+                                }
+                            })
+                            document.querySelector(x).style.display = "block";
+                            break;
+                    }
+              })
+            })
         </script>
     </body>
 </html>
